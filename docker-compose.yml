@@ -4,10 +4,10 @@ services:
   external:
     build: external
     ports:
-      - "8081:80"
-      - "22:22"
-      - "20:20"
-      - "21:21"
+      - "8800:80"
+      - "2200:22"
+      - "2000:20"
+      - "2100:21"
     networks:
       - external
 
