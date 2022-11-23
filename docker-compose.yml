@@ -3,28 +3,13 @@ version: '2'
 services:
   external:
     build: external
-    # restart: unless-stopped 
     ports:
-      - "80:80"
+      - "8081:80"
       - "22:22"
-      - "3306:3306"
       - "20:20"
       - "21:21"
     networks:
       - external
-
-    # build:
-    #   context: .
-    #   dockerfile: ./2004/Dockerfile
-    #   args:
-    #     - PHP_VERSION=7.4
-    # environment:
-    #   - MYSQL_ADMIN_PASS=password
-    # ports:
-    #   - "3030:80"
-    #   - "3031:3306"
-    # tmpfs:
-    #   - /var/lib/mysql
 
 networks:
   external:

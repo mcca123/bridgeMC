@@ -1,9 +1,4 @@
 FROM ubuntu:20.04
-# mcca
-
-LABEL Description="Ubuntu 20.04 LTS LAMP stack."\
-	Usage="docker run -d -p [HOST WWW PORT NUMBER]:80 -p [HOST DB PORT NUMBER]:3306 -v [HOST WWW DOCUMENT ROOT]:/var/www/html -v [HOST DB DOCUMENT ROOT]:/var/lib/mysql name" \
-	Version="1.0"
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -51,10 +46,9 @@ RUN chmod +x /start
 #run ssh
 RUN service ssh start
 
-EXPOSE 20/tcp
-EXPOSE 21/tcp
+EXPOSE 20
+EXPOSE 21
 EXPOSE 22
 EXPOSE 80
-EXPOSE 40000-40009:40000-40009/tcp
 
 CMD ["/start"]
