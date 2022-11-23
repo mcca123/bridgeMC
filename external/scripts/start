@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# service  --status-all
+/bin/bash -c "service mysql start"
+sleep 5
+
+mysql -uroot -e "CREATE USER 'masterDB'@localhost IDENTIFIED BY 'IRkrgnBtdfgPdGx2'"
+mysql -uroot -e "CREATE DATABASE loginadminuser"
+mysql -uroot loginadminuser < /var/lib/mysql/loginadminuser.sql
+mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'masterDB'@localhost WITH GRANT OPTION"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON loginadminuser.* TO 'masterDB'@localhost"
+
+/bin/bash -c "service apache2 start"
+/bin/bash -c "/usr/sbin/sshd"
+/bin/bash -c "service vsftpd start"
+/bin/bash -c "sleep infinity"
