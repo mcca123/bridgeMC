@@ -4,10 +4,12 @@ services:
   external:
     build: external
     ports:
-      - "8800:80"
-      - "2200:22"
-      - "2000:20"
-      - "2100:21"
+      - "8081:80"
+      - "2222:22"
+      - '20-21:20-21/tcp'
+      - '40000-40009:40000-40009/tcp'
+    volumes:
+      - '/data:/home/user'
     networks:
       - external
 
