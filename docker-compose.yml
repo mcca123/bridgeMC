@@ -4,14 +4,42 @@ services:
   external:
     build: external
     ports:
-      - "8081:80"
+      - '8081:80'
       - "2222:22"
       - '20-21:20-21/tcp'
       - '40000-40009:40000-40009/tcp'
-    volumes:
-      - '/data:/home/user'
-    networks:
-      - external
+    # networks:
+    #   ex-networks:
+    #     ipv4_address: 10.10.7.2 
+      
+    #   in-networks:
+    #     ipv4_address: 10.10.8.2 
 
-networks:
-  external:
+  internal:
+    build: internal
+    ports:
+      - '8082:80'
+      - '1880:1880'
+    # networks:
+    #   ex-networks:
+    #     ipv4_address: 10.10.7.3 
+      
+    #   in-networks:
+    #     ipv4_address: 10.10.8.3
+
+# networks:
+#   ex-networks:
+#     name: aNetwork
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 10.10.7.0/24
+#           gateway: 10.10.7.1
+  
+#   in-networks:
+#     name: bNetwork
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 10.10.8.0/24
+#           gateway: 10.10.8.1

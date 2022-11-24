@@ -29,7 +29,7 @@
             <span>Server :</span>
             <input type="text" name="FTP_server" value="localhost" class="box">
             <span>Username :</span>
-            <input type="text" name="FTP_name" value="master-MC" class="box">
+            <input type="text" name="FTP_name" value="master-mc" class="box">
             <span>Password :</span>
             <input type="password" name="FTP_password" value="P@ssw0rd" class="box">
          </div>

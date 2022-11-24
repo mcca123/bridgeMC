@@ -1,0 +1,2 @@
+User-agent: *
+Allow: /thi$MyH0me/mosAttack.rar
