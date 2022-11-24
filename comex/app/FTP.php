@@ -31,7 +31,7 @@
             <span>Username :</span>
             <input type="text" name="FTP_name" value="master-mc" class="box">
             <span>Password :</span>
-            <input type="password" name="FTP_password" value="P@ssw0rd" class="box">
+            <input type="password" name="FTP_password" value="eD^LW5(EyZtW6ubu" class="box">
          </div>
       </div>
       <input type="submit" value="Test Connect FTP" name="update_profile" class="btn">

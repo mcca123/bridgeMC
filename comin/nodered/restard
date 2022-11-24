@@ -1,0 +1,56 @@
+[
+    {
+        "id": "a62c1e09f05c3ebb",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1952f2358a591dca",
+        "type": "mqtt-broker",
+        "name": "test",
+        "broker": "test",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "301b72a0d4262f6b",
+        "type": "mqtt in",
+        "z": "a62c1e09f05c3ebb",
+        "name": "",
+        "topic": "senser",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1952f2358a591dca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    }
+]
