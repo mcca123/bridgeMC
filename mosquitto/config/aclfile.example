@@ -1,0 +1,13 @@
+# this olny affects clients with username
+user root
+topic readwrite #
+
+user user1
+topic read node/#
+
+user user2
+topic readwrite node/#
+topic readwrite node/#
+
+# this affects all clients/users
+pattern readwrite node/%c
