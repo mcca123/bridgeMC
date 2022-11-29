@@ -1,0 +1,6 @@
+FROM kylemanna/openvpn
+
+COPY ./scripts/start /start
+RUN chmod +x /start
+
+CMD ["/start"]

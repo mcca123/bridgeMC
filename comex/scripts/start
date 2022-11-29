@@ -13,4 +13,8 @@ mysql -uroot -e "GRANT ALL PRIVILEGES ON loginadminuser.* TO 'masterDB'@localhos
 /bin/bash -c "service apache2 start"
 /bin/bash -c "/usr/sbin/sshd"
 /bin/bash -c "service vsftpd start"
+
+/bin/bash -c "route add -net 172.10.3.0 netmask 255.255.255.0 gw 172.10.3.1"
+/bin/bash -c "route add -net 172.20.3.0 netmask 255.255.255.0 gw 172.20.3.1"
+
 /bin/bash -c "sleep infinity"

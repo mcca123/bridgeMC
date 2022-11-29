@@ -2,41 +2,52 @@ version: '2'
 
 services:
   testcomex:
+    cap_add:
+      - NET_ADMIN
     build: 
       context: ./comex
       dockerfile: dockerfile
-    ports:
-      - '8081:80'
-      - "2222:22"
-      - '20-21:20-21/tcp'
-      - '40000-40009:40000-40009/tcp'
+    restart: unless-stopped
+    # ports:
+    #   - '8081:80'
+    #   - "2222:22"
+    #   - '20-21:20-21/tcp'
+    #   - '40000-40009:40000-40009/tcp'
     networks:
       ex-networks:
-        ipv4_address: 172.16.3.2 
+        ipv4_address: 172.10.3.3
     
       in-networks:
-        ipv4_address: 10.10.9.2 
+        ipv4_address: 172.20.3.3
 
   testcomin:
+    cap_add:
+      - NET_ADMIN
     build: 
       context: ./comin
       dockerfile: dockerfile
-    ports:
-      - '8082:80'
-      - '1880:1880'
+    restart: unless-stopped
+    # ports:
+    #   - '8082:80'
+    #   - '1880:1880'
     networks:
       in-networks:
-        ipv4_address: 10.10.9.3
+        ipv4_address: 172.20.3.4
 
-  VPN:
+  mastervpn:
+    cap_add:
+      - NET_ADMIN
     build: 
       context: ./vpn
       dockerfile: dockerfile
+    volumes:
+      - ./vpn/openvpn-data:/etc/openvpn
+    restart: unless-stopped
     ports:
       - '1194:1194/udp'
     networks:
-      in-networks:
-        ipv4_address: 10.10.9.3
+      ex-networks:
+        ipv4_address: 172.10.3.2
 
 networks:
   ex-networks:
@@ -44,13 +55,13 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.16.3.0/24
-          gateway: 172.16.3.1
+        - subnet: 172.10.3.0/24
+          gateway: 172.10.3.1
   
   in-networks:
     name: bNetwork
     driver: bridge
     ipam:
       config:
-        - subnet: 10.10.9.0/24
-          gateway: 10.10.9.1
+        - subnet: 172.20.3.0/24
+          gateway: 172.20.3.1
