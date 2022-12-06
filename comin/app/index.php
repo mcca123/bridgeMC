@@ -1,4 +1,4 @@
-<html>
-<img src="findMyHome.png">
-
-</html>
+<!DOCTYPE html>
+        <html>
+                <img src="findMyHome.png">
+        </html>

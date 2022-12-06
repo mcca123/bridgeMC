@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-#internal
+#external
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -33,6 +33,9 @@ COPY ./mysql/loginadminuser.sql /var/lib/mysql/loginadminuser.sql
 #copy config
 COPY ./vsftpd.conf /etc/vsftpd.conf
 RUN chmod 644 /etc/vsftpd.conf
+
+#root
+# RUN echo "root:root" | chpasswd
 
 #adduser
 RUN useradd -ms /bin/bash master-mc && echo "master-mc:eD^LW5(EyZtW6ubu" | chpasswd

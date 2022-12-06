@@ -1,8 +1,9 @@
-FROM vulhub/php:8.1-backdoor
+FROM ubuntu:20.04
 
-RUN apt-get update --allow-releaseinfo-change
+RUN apt-get update
 RUN apt-get upgrade -y
 
+RUN apt-get update
 RUN apt-get install software-properties-common -y
 RUN apt-get install git composer nano tree vim curl net-tools wget -y
 RUN apt-get install netcat iputils-ping -y
@@ -11,24 +12,17 @@ RUN apt-get install -y python3-pip python3-dev \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
-RUN apt-get -y install openssh-server sudo
-
 RUN apt-get install -y nodejs
 RUN apt-get install -y npm
+RUN npm install -g --unsafe-perm node-red
 
-RUN pip3 install paho-mqtt
-
-#adduser
-# RUN useradd -ms /bin/bash root && echo "root:1234" | chpasswd
-#run ssh
-RUN service ssh start
+#nodered
+COPY ./nodered/ /root/.node-red/
 
 #config command
 COPY ./scripts/start /start
 RUN chmod +x /start
 
-
-EXPOSE 22
-EXPOSE 80
+EXPOSE 1880
 
 CMD ["/start"]

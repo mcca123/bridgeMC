@@ -1,0 +1,84 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            6b:39:cc:c0:29:31:01:d2:9a:96:1a:a3:98:60:b6:98
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=masterpi
+        Validity
+            Not Before: Nov 30 13:47:56 2022 GMT
+            Not After : Mar  4 13:47:56 2025 GMT
+        Subject: CN=clientPi
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:c1:e2:94:25:6a:1c:a1:d5:19:8b:14:62:68:98:
+                    4c:38:c9:45:d1:2a:38:c4:de:4a:ca:c7:07:4e:36:
+                    00:75:79:4e:8b:99:20:ff:1b:db:1e:5e:d5:90:79:
+                    3c:67:fc:58:13:ec:e4:b4:c6:8c:74:96:d1:08:93:
+                    df:0d:e4:d3:66:16:44:b7:91:51:92:c0:c2:dc:14:
+                    24:9c:58:65:6c:f7:05:d6:9f:2c:86:ed:99:2e:e1:
+                    12:db:9d:5c:5c:fb:80:6f:fa:7f:7e:3c:cc:55:47:
+                    d7:ed:74:12:0b:e3:f8:dd:a0:ef:dc:71:78:40:3c:
+                    7c:dd:08:c2:a4:1b:23:4a:d9:0c:18:fa:df:0e:f1:
+                    79:13:1d:83:44:4e:97:27:87:c8:08:73:a7:aa:ec:
+                    c0:7c:f6:9f:29:57:84:3b:17:8b:d5:ad:b8:cf:71:
+                    97:4b:0d:90:14:1a:ff:5c:d7:cb:29:87:ee:b5:23:
+                    e6:d1:0c:2d:93:a6:2b:51:63:5f:58:f6:21:38:02:
+                    e4:d2:6e:b5:4f:ec:b7:ba:85:ad:6e:2e:54:ed:7f:
+                    d5:18:39:99:a0:af:1f:19:ad:e3:95:da:90:f0:43:
+                    b4:f3:15:bf:50:f0:31:d8:5c:97:66:ab:a9:fb:ca:
+                    31:9c:02:28:d2:00:7c:2f:80:5b:a4:6d:d9:fe:69:
+                    d7:a7
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                B1:BC:39:C7:F7:AF:28:CC:57:48:B7:32:AF:2A:9D:0D:93:80:DF:CA
+            X509v3 Authority Key Identifier: 
+                keyid:01:DA:EE:A3:34:28:EE:AB:C0:83:D2:A4:66:FF:FA:F4:CD:D2:CD:31
+                DirName:/CN=masterpi
+                serial:28:1E:9F:E3:D7:AA:5D:00:D8:FB:5B:F6:25:57:65:E7:96:DB:DF:67
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+    Signature Algorithm: sha256WithRSAEncryption
+         67:bd:dc:40:f4:9c:44:74:6c:86:b0:1d:19:15:7e:75:e5:95:
+         fb:e6:37:88:de:fd:91:3a:29:78:b0:f8:97:6a:91:dd:8e:bd:
+         31:4d:0e:f6:b1:21:6e:2e:44:96:fc:2f:03:a4:66:31:39:15:
+         a2:e9:ea:f7:16:db:54:d9:5f:f0:0d:7b:52:0a:ef:b3:f2:d8:
+         c7:89:e9:4b:80:7c:40:61:71:5d:f1:2d:04:06:9f:cc:c2:51:
+         a1:46:60:41:f1:8d:d5:20:db:1d:c4:fb:a7:a7:78:cc:80:db:
+         51:a6:42:79:81:5d:7b:56:3f:9f:ae:5a:77:24:22:fe:a0:85:
+         89:79:6d:4b:bd:9a:cd:d8:72:b1:7f:6b:78:55:2a:9a:e9:fe:
+         32:c1:c1:55:65:4b:36:83:54:6f:2d:21:a8:fa:ac:09:ac:77:
+         2f:0e:78:5e:a2:79:69:5e:73:7c:b8:e7:ac:34:1c:0e:dd:2c:
+         49:58:9c:74:30:91:26:ab:7a:46:52:e3:e6:09:67:e1:dc:3a:
+         80:aa:1d:d4:e5:38:ac:69:f2:f9:d1:a7:db:dd:cb:77:a2:51:
+         e3:a0:b9:16:87:0a:90:64:de:d8:6b:51:f8:69:43:1c:85:0c:
+         16:98:08:f1:8a:32:b4:fb:58:2b:21:12:98:c8:c7:81:9c:cb:
+         87:ad:78:f8
+-----BEGIN CERTIFICATE-----
+MIIDUDCCAjigAwIBAgIQaznMwCkxAdKalhqjmGC2mDANBgkqhkiG9w0BAQsFADAT
+MREwDwYDVQQDDAhtYXN0ZXJwaTAeFw0yMjExMzAxMzQ3NTZaFw0yNTAzMDQxMzQ3
+NTZaMBMxETAPBgNVBAMMCGNsaWVudFBpMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEAweKUJWocodUZixRiaJhMOMlF0So4xN5KyscHTjYAdXlOi5kg/xvb
+Hl7VkHk8Z/xYE+zktMaMdJbRCJPfDeTTZhZEt5FRksDC3BQknFhlbPcF1p8shu2Z
+LuES251cXPuAb/p/fjzMVUfX7XQSC+P43aDv3HF4QDx83QjCpBsjStkMGPrfDvF5
+Ex2DRE6XJ4fICHOnquzAfPafKVeEOxeL1a24z3GXSw2QFBr/XNfLKYfutSPm0Qwt
+k6YrUWNfWPYhOALk0m61T+y3uoWtbi5U7X/VGDmZoK8fGa3jldqQ8EO08xW/UPAx
+2FyXZqup+8oxnAIo0gB8L4BbpG3Z/mnXpwIDAQABo4GfMIGcMAkGA1UdEwQCMAAw
+HQYDVR0OBBYEFLG8Ocf3ryjMV0i3Mq8qnQ2TgN/KME4GA1UdIwRHMEWAFAHa7qM0
+KO6rwIPSpGb/+vTN0s0xoRekFTATMREwDwYDVQQDDAhtYXN0ZXJwaYIUKB6f49eq
+XQDY+1v2JVdl55bb32cwEwYDVR0lBAwwCgYIKwYBBQUHAwIwCwYDVR0PBAQDAgeA
+MA0GCSqGSIb3DQEBCwUAA4IBAQBnvdxA9JxEdGyGsB0ZFX515ZX75jeI3v2ROil4
+sPiXapHdjr0xTQ72sSFuLkSW/C8DpGYxORWi6er3FttU2V/wDXtSCu+z8tjHielL
+gHxAYXFd8S0EBp/MwlGhRmBB8Y3VINsdxPunp3jMgNtRpkJ5gV17Vj+frlp3JCL+
+oIWJeW1LvZrN2HKxf2t4VSqa6f4ywcFVZUs2g1RvLSGo+qwJrHcvDnheonlpXnN8
+uOesNBwO3SxJWJx0MJEmq3pGUuPmCWfh3DqAqh3U5TisafL50afb3ct3olHjoLkW
+hwqQZN7Ya1H4aUMchQwWmAjxijK0+1grIRKYyMeBnMuHrXj4
+-----END CERTIFICATE-----

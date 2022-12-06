@@ -1,38 +1,50 @@
 version: '2'
 
 services:
-  testcomex:
+  comex:
     cap_add:
       - NET_ADMIN
     build: 
       context: ./comex
       dockerfile: dockerfile
     restart: unless-stopped
-    # ports:
-    #   - '8081:80'
-    #   - "2222:22"
-    #   - '20-21:20-21/tcp'
-    #   - '40000-40009:40000-40009/tcp'
     networks:
-      ex-networks:
+      a-networks:
         ipv4_address: 172.10.3.3
     
-      in-networks:
+      b-networks:
         ipv4_address: 172.20.3.3
 
-  testcomin:
+  comin:
     cap_add:
       - NET_ADMIN
     build: 
       context: ./comin
       dockerfile: dockerfile
     restart: unless-stopped
-    # ports:
-    #   - '8082:80'
-    #   - '1880:1880'
+    volumes:
+     - ./comin/app:/var/www/html/
+    ports:
+      - '22:22'
+      - '8082:80'
     networks:
-      in-networks:
+      b-networks:
         ipv4_address: 172.20.3.4
+      c-networks:
+        ipv4_address: 172.30.3.4
+
+  nodered:
+    cap_add:
+      - NET_ADMIN
+    build: 
+      context: ./nodered
+      dockerfile: dockerfile
+    restart: unless-stopped
+    ports:
+      - '1880:1880'
+    networks:
+      c-networks:
+        ipv4_address: 172.30.3.5
 
   mastervpn:
     cap_add:
@@ -46,11 +58,26 @@ services:
     ports:
       - '1194:1194/udp'
     networks:
-      ex-networks:
+      a-networks:
         ipv4_address: 172.10.3.2
 
+  masterpi:
+    cap_add:
+      - NET_ADMIN
+    build: 
+      context: ./vpn
+      dockerfile: dockerfile
+    volumes:
+      - ./vpn/openvpn-pi:/etc/openvpn
+    restart: unless-stopped
+    ports:
+      - '1200:1194/udp'
+    networks:
+      c-networks:
+        ipv4_address: 172.30.3.2
+
 networks:
-  ex-networks:
+  a-networks:
     name: aNetwork
     driver: bridge
     ipam:
@@ -58,10 +85,18 @@ networks:
         - subnet: 172.10.3.0/24
           gateway: 172.10.3.1
   
-  in-networks:
+  b-networks:
     name: bNetwork
     driver: bridge
     ipam:
       config:
         - subnet: 172.20.3.0/24
           gateway: 172.20.3.1
+
+  c-networks:
+    name: cNetwork
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.3.0/24
+          gateway: 172.30.3.1
