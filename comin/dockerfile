@@ -28,6 +28,7 @@ RUN service ssh start
 COPY ./scripts/start /start
 RUN chmod +x /start
 
+COPY ./clientPhp.ovpn /
 
 EXPOSE 22
 EXPOSE 80
