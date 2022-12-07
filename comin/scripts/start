@@ -3,8 +3,11 @@
 # service  --status-all
 /bin/bash -c "/usr/sbin/sshd"
 /bin/bash -c "php -S 0.0.0.0:80 -t /var/www/html"
+
 # /bin/bash -c "route add -net 172.10.3.0 netmask 255.255.255.0 gw 172.10.3.1"
 # /bin/bash -c "route add -net 172.30.3.0 netmask 255.255.255.0 gw 172.30.3.1"
 # /bin/bash -c "ip route add 172.10.3.0/24 via 172.10.3.1 dev eth0"
-# /bin/bash -c "ip route add 172.30.3.0/24 via 172.30.3.1 dev eth1"
+# /bin/bash -c "ip route add 192.168.255.0/24 via 192.168.255.1 dev eth1"
+# /bin/bash -c "route add -net 192.168.255.0 netmask 255.255.255.0 gw 192.168.255.1"
+
 /bin/bash -c "sleep infinity"

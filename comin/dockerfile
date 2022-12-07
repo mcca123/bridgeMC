@@ -17,6 +17,7 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y npm
 
 RUN pip3 install paho-mqtt
+RUN apt-get install openvpn -y
 
 #adduser
 # RUN useradd -ms /bin/bash root && echo "root:1234" | chpasswd

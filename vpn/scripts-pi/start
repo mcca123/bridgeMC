@@ -1,5 +1,6 @@
 #!/bin/bash
 
 /bin/bash -c "route add -net 172.30.3.0 netmask 255.255.255.0 gw 172.30.3.1"
+/bin/bash -c "route add -net 192.168.255.0 netmask 255.255.255.0 gw 192.168.255.1"
 
 /bin/bash -c "ovpn_run"
