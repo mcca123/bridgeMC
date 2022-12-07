@@ -24,9 +24,6 @@ services:
     restart: unless-stopped
     volumes:
      - ./comin/app:/var/www/html/
-    ports:
-      - '22:22'
-      - '8082:80'
     networks:
       b-networks:
         ipv4_address: 172.20.3.4
@@ -40,8 +37,6 @@ services:
       context: ./nodered
       dockerfile: dockerfile
     restart: unless-stopped
-    ports:
-      - '1880:1880'
     networks:
       c-networks:
         ipv4_address: 172.30.3.5
