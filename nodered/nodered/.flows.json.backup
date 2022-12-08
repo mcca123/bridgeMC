@@ -10,9 +10,9 @@
     {
         "id": "0695e62b325eea6c",
         "type": "mqtt-broker",
-        "name": "testNow",
-        "broker": "192.168.137.19",
-        "port": "2000",
+        "name": "mosquitto 1.4.10",
+        "broker": "192.168.255.6",
+        "port": "1883",
         "clientid": "",
         "autoConnect": true,
         "usetls": false,
@@ -37,7 +37,7 @@
     {
         "id": "1411685a3c520a30",
         "type": "ui_tab",
-        "name": "MQTT dashboard",
+        "name": "mosquitto",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

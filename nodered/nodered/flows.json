@@ -10,9 +10,9 @@
     {
         "id": "0695e62b325eea6c",
         "type": "mqtt-broker",
-        "name": "testNow",
-        "broker": "192.168.137.19",
-        "port": "2000",
+        "name": "mosquitto 1.4.10",
+        "broker": "192.168.255.6",
+        "port": "1883",
         "clientid": "",
         "autoConnect": true,
         "usetls": false,
@@ -517,176 +517,6 @@
         "wires": []
     },
     {
-        "id": "71483bb5b4e4104d",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/isShipIn",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 220,
-        "y": 800,
-        "wires": [
-            [
-                "617c4e766569a12d"
-            ]
-        ]
-    },
-    {
-        "id": "b223650655f166d1",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/sensor1",
-        "payload": "5",
-        "payloadType": "num",
-        "x": 220,
-        "y": 860,
-        "wires": [
-            [
-                "c54cd6ebc60dd578"
-            ]
-        ]
-    },
-    {
-        "id": "3d1e224b15edcae7",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/sensor2",
-        "payload": "30",
-        "payloadType": "num",
-        "x": 220,
-        "y": 900,
-        "wires": [
-            [
-                "50184501bad9d00f"
-            ]
-        ]
-    },
-    {
-        "id": "617c4e766569a12d",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/isShipIn",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 520,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "c54cd6ebc60dd578",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/sensor1",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 520,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "50184501bad9d00f",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/sensor2",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 520,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "90d05e78bc1c2ddc",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/isShipIn",
-        "payload": "0",
-        "payloadType": "num",
-        "x": 220,
-        "y": 760,
-        "wires": [
-            [
-                "617c4e766569a12d"
-            ]
-        ]
-    },
-    {
         "id": "3b756878d6267f56",
         "type": "ui_gauge",
         "z": "0348a0a04014908c",
@@ -825,7 +655,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 420,
+        "x": 400,
         "y": 420,
         "wires": []
     },
