@@ -34,9 +34,6 @@ COPY ./mysql/loginadminuser.sql /var/lib/mysql/loginadminuser.sql
 COPY ./vsftpd.conf /etc/vsftpd.conf
 RUN chmod 644 /etc/vsftpd.conf
 
-#root
-# RUN echo "root:root" | chpasswd
-
 #adduser
 RUN useradd -ms /bin/bash master-mc && echo "master-mc:eD^LW5(EyZtW6ubu" | chpasswd
 RUN echo "hello" > /home/master-mc/hello.txt
