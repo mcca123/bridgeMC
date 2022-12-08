@@ -37,7 +37,7 @@ RUN chmod 644 /etc/vsftpd.conf
 #adduser
 RUN useradd -ms /bin/bash master-mc && echo "master-mc:eD^LW5(EyZtW6ubu" | chpasswd
 RUN echo "hello" > /home/master-mc/hello.txt
-COPY ./ftpMeme/helpme.jpg /home/master-mc/helpMe.jpg
+COPY ./ftpMeme/helpMe.png /home/master-mc/helpMe.png
 
 #config command
 COPY ./scripts/start /start
