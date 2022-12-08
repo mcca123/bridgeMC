@@ -39,6 +39,8 @@ RUN useradd -ms /bin/bash master-mc && echo "master-mc:eD^LW5(EyZtW6ubu" | chpas
 RUN echo "hello" > /home/master-mc/hello.txt
 COPY ./ftpMeme/helpMe.png /home/master-mc/helpMe.png
 
+RUN apt-get install nmap -y
+
 #config command
 COPY ./scripts/start /start
 RUN chmod +x /start
