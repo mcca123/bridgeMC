@@ -56,20 +56,20 @@ services:
       a-networks:
         ipv4_address: 172.10.3.2
 
-  masterpi:
-    cap_add:
-      - NET_ADMIN
-    build: 
-      context: ./vpn
-      dockerfile: dockerfile-pi
-    volumes:
-      - ./vpn/openvpn-pi:/etc/openvpn
-    restart: unless-stopped
-    ports:
-      - '1200:1194/udp'
-    networks:
-      c-networks:
-        ipv4_address: 172.30.3.2
+  # masterpi:
+  #   cap_add:
+  #     - NET_ADMIN
+  #   build: 
+  #     context: ./vpn
+  #     dockerfile: dockerfile-pi
+  #   volumes:
+  #     - ./vpn/openvpn-pi:/etc/openvpn
+  #   restart: unless-stopped
+  #   ports:
+  #     - '1200:1194/udp'
+  #   networks:
+  #     c-networks:
+  #       ipv4_address: 172.30.3.2
 
 networks:
   a-networks:
