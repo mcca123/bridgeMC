@@ -437,7 +437,6 @@
         "y": 300,
         "wires": [
             [
-                "ab43b80483c84752",
                 "269149a0190f2dcc",
                 "b161a1610ba076ad"
             ]
@@ -466,7 +465,6 @@
         "y": 360,
         "wires": [
             [
-                "d6670683e3bc67f2",
                 "2d7acab11cfa6a93",
                 "565998cbac93f14b"
             ]
@@ -496,8 +494,7 @@
         "wires": [
             [
                 "b0c7e33daa252e8b",
-                "0da4aa92db8e2675",
-                "b4e4f06bc23fbff7"
+                "0da4aa92db8e2675"
             ]
         ]
     },
@@ -534,7 +531,7 @@
         "expiry": "",
         "broker": "0695e62b325eea6c",
         "x": 630,
-        "y": 440,
+        "y": 400,
         "wires": []
     },
     {
@@ -552,7 +549,7 @@
         "expiry": "",
         "broker": "0695e62b325eea6c",
         "x": 630,
-        "y": 540,
+        "y": 500,
         "wires": []
     },
     {
@@ -586,7 +583,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 620,
-        "y": 400,
+        "y": 360,
         "wires": []
     },
     {
@@ -603,7 +600,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 630,
-        "y": 500,
+        "y": 460,
         "wires": []
     },
     {
@@ -629,8 +626,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1100,
-        "y": 560,
+        "x": 1260,
+        "y": 520,
         "wires": []
     },
     {
@@ -656,8 +653,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1100,
-        "y": 700,
+        "x": 1260,
+        "y": 600,
         "wires": []
     },
     {
@@ -673,35 +670,16 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1090,
-        "y": 620,
+        "x": 1250,
+        "y": 560,
         "wires": []
-    },
-    {
-        "id": "d6670683e3bc67f2",
-        "type": "function",
-        "z": "0348a0a04014908c",
-        "name": "function 5",
-        "func": "if (msg.payload == 1){\n    msg.payload = true\n} else if (msg.payload == 0) {\n    msg.payload = false\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 360,
-        "wires": [
-            [
-                "944f1d2a847d42e8"
-            ]
-        ]
     },
     {
         "id": "be9d91736d223268",
         "type": "mqtt in",
         "z": "0348a0a04014908c",
         "name": "",
-        "topic": "node/isShipTrue",
+        "topic": "node/isShipFalse",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0695e62b325eea6c",
@@ -710,7 +688,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 840,
+        "y": 720,
         "wires": [
             [
                 "0191df191ab6328d",
@@ -739,12 +717,11 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 780,
+        "y": 660,
         "wires": [
             [
                 "699c61e2ca0acf4d",
-                "eb10a137226393aa",
-                "ab43b80483c84752"
+                "eb10a137226393aa"
             ]
         ]
     },
@@ -768,10 +745,9 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 840,
+        "y": 720,
         "wires": [
             [
-                "56a670d4b67e7e4d",
                 "31dfcb6d5dea78d1",
                 "80671fe2b27d730f"
             ]
@@ -797,12 +773,11 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 900,
+        "y": 780,
         "wires": [
             [
                 "65973d9c98e6fd77",
-                "eb40a92c9aa2fcc7",
-                "b4e4f06bc23fbff7"
+                "eb40a92c9aa2fcc7"
             ]
         ]
     },
@@ -821,7 +796,7 @@
         "expiry": "",
         "broker": "0695e62b325eea6c",
         "x": 630,
-        "y": 780,
+        "y": 660,
         "wires": []
     },
     {
@@ -839,7 +814,7 @@
         "expiry": "",
         "broker": "0695e62b325eea6c",
         "x": 630,
-        "y": 920,
+        "y": 760,
         "wires": []
     },
     {
@@ -857,7 +832,7 @@
         "expiry": "",
         "broker": "0695e62b325eea6c",
         "x": 630,
-        "y": 1020,
+        "y": 860,
         "wires": []
     },
     {
@@ -874,7 +849,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 630,
-        "y": 740,
+        "y": 620,
         "wires": []
     },
     {
@@ -891,7 +866,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 620,
-        "y": 880,
+        "y": 720,
         "wires": []
     },
     {
@@ -908,7 +883,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 630,
-        "y": 980,
+        "y": 820,
         "wires": []
     },
     {
@@ -922,11 +897,74 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 840,
+        "x": 1080,
+        "y": 560,
         "wires": [
             [
                 "944f1d2a847d42e8"
+            ]
+        ]
+    },
+    {
+        "id": "96adf1858bc22d95",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/bridge",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 910,
+        "y": 520,
+        "wires": [
+            [
+                "ab43b80483c84752"
+            ]
+        ]
+    },
+    {
+        "id": "871928655ec7baf0",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/alarm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 900,
+        "y": 560,
+        "wires": [
+            [
+                "56a670d4b67e7e4d"
+            ]
+        ]
+    },
+    {
+        "id": "7a032ab7037dcf5d",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/barrier",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 910,
+        "y": 600,
+        "wires": [
+            [
+                "b4e4f06bc23fbff7"
             ]
         ]
     }

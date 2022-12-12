@@ -76,16 +76,10 @@ module.exports = {
     adminAuth: {
         type: "credentials",
         users: [{
-                username: "admin",
-                password: "$2b$08$vl/p2Zy1vfbB/sxgaMBMyO84M/12ahnGy.d3cdtop20lhw7v6fpCG",
-                permissions: "*"
-            },
-            {
-                username: "master-mc",
-                password: "$2b$08$u5WaKj2E6a5Wzkzd3zYEoO5QjvqxobH4Yi8TmfPqlHdW8L2rlJHuO",
-                permissions: "read"
-            },
-        ]
+            username: "master-mc",
+            password: "$2b$08$u5WaKj2E6a5Wzkzd3zYEoO5QjvqxobH4Yi8TmfPqlHdW8L2rlJHuO",
+            permissions: "read"
+        }, ]
     },
 
     /** The following property can be used to enable HTTPS

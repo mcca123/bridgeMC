@@ -185,8 +185,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 460,
+        "x": 130,
+        "y": 60,
         "wires": [
             [
                 "580aa6ecf2871cc7",
@@ -207,8 +207,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 540,
+        "x": 130,
+        "y": 140,
         "wires": [
             [
                 "580aa6ecf2871cc7",
@@ -236,8 +236,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 370,
-        "y": 500,
+        "x": 310,
+        "y": 100,
         "wires": [
             [
                 "a02c9a5ec8656bd8"
@@ -263,8 +263,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 380,
-        "y": 460,
+        "x": 320,
+        "y": 60,
         "wires": []
     },
     {
@@ -280,8 +280,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 380,
-        "y": 540,
+        "x": 320,
+        "y": 140,
         "wires": []
     },
     {
@@ -295,8 +295,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 500,
+        "x": 440,
+        "y": 100,
         "wires": [
             [
                 "2220783fa947dac0"
@@ -314,8 +314,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
-        "y": 500,
+        "x": 580,
+        "y": 100,
         "wires": [
             [
                 "9ac665aca9a01f01"
@@ -344,8 +344,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 770,
-        "y": 500,
+        "x": 710,
+        "y": 100,
         "wires": [
             [
                 "9088a9821cf10d56"
@@ -369,8 +369,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 980,
-        "y": 460,
+        "x": 920,
+        "y": 60,
         "wires": []
     },
     {
@@ -387,8 +387,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 990,
-        "y": 520,
+        "x": 930,
+        "y": 120,
         "wires": []
     },
     {
@@ -404,8 +404,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 760,
+        "x": 140,
+        "y": 360,
         "wires": [
             [
                 "0d27c3f93886db44",
@@ -433,11 +433,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 700,
+        "x": 370,
+        "y": 300,
         "wires": [
             [
-                "ab43b80483c84752",
                 "269149a0190f2dcc",
                 "b161a1610ba076ad"
             ]
@@ -462,8 +461,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 760,
+        "x": 370,
+        "y": 360,
         "wires": [
             [
                 "d6670683e3bc67f2",
@@ -491,13 +490,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 820,
+        "x": 370,
+        "y": 420,
         "wires": [
             [
                 "b0c7e33daa252e8b",
-                "0da4aa92db8e2675",
-                "b4e4f06bc23fbff7"
+                "0da4aa92db8e2675"
             ]
         ]
     },
@@ -515,8 +513,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 690,
-        "y": 700,
+        "x": 630,
+        "y": 300,
         "wires": []
     },
     {
@@ -533,8 +531,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 690,
-        "y": 840,
+        "x": 630,
+        "y": 440,
         "wires": []
     },
     {
@@ -551,8 +549,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 690,
-        "y": 940,
+        "x": 630,
+        "y": 540,
         "wires": []
     },
     {
@@ -568,8 +566,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 660,
+        "x": 630,
+        "y": 260,
         "wires": []
     },
     {
@@ -585,8 +583,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 800,
+        "x": 620,
+        "y": 400,
         "wires": []
     },
     {
@@ -602,8 +600,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 900,
+        "x": 630,
+        "y": 500,
         "wires": []
     },
     {
@@ -629,8 +627,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1160,
-        "y": 960,
+        "x": 1260,
+        "y": 520,
         "wires": []
     },
     {
@@ -656,8 +654,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1160,
-        "y": 1100,
+        "x": 1260,
+        "y": 600,
         "wires": []
     },
     {
@@ -673,8 +671,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1150,
-        "y": 1020,
+        "x": 1250,
+        "y": 560,
         "wires": []
     },
     {
@@ -688,12 +686,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 760,
+        "x": 620,
+        "y": 360,
         "wires": [
-            [
-                "944f1d2a847d42e8"
-            ]
+            []
         ]
     },
     {
@@ -701,7 +697,7 @@
         "type": "mqtt in",
         "z": "0348a0a04014908c",
         "name": "",
-        "topic": "node/isShipTrue",
+        "topic": "node/isShipFalse",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0695e62b325eea6c",
@@ -709,8 +705,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 1240,
+        "x": 140,
+        "y": 720,
         "wires": [
             [
                 "0191df191ab6328d",
@@ -738,13 +734,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 1180,
+        "x": 370,
+        "y": 660,
         "wires": [
             [
                 "699c61e2ca0acf4d",
-                "eb10a137226393aa",
-                "ab43b80483c84752"
+                "eb10a137226393aa"
             ]
         ]
     },
@@ -767,11 +762,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 1240,
+        "x": 370,
+        "y": 720,
         "wires": [
             [
-                "56a670d4b67e7e4d",
                 "31dfcb6d5dea78d1",
                 "80671fe2b27d730f"
             ]
@@ -796,13 +790,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 1300,
+        "x": 370,
+        "y": 780,
         "wires": [
             [
                 "65973d9c98e6fd77",
-                "eb40a92c9aa2fcc7",
-                "b4e4f06bc23fbff7"
+                "eb40a92c9aa2fcc7"
             ]
         ]
     },
@@ -820,8 +813,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 690,
-        "y": 1180,
+        "x": 630,
+        "y": 660,
         "wires": []
     },
     {
@@ -838,8 +831,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 690,
-        "y": 1320,
+        "x": 630,
+        "y": 760,
         "wires": []
     },
     {
@@ -856,8 +849,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 690,
-        "y": 1420,
+        "x": 630,
+        "y": 860,
         "wires": []
     },
     {
@@ -873,8 +866,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 1140,
+        "x": 630,
+        "y": 620,
         "wires": []
     },
     {
@@ -890,8 +883,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 1280,
+        "x": 620,
+        "y": 720,
         "wires": []
     },
     {
@@ -907,8 +900,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 1380,
+        "x": 630,
+        "y": 820,
         "wires": []
     },
     {
@@ -922,11 +915,74 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 1240,
+        "x": 1080,
+        "y": 560,
         "wires": [
             [
                 "944f1d2a847d42e8"
+            ]
+        ]
+    },
+    {
+        "id": "96adf1858bc22d95",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/bridge",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 910,
+        "y": 520,
+        "wires": [
+            [
+                "ab43b80483c84752"
+            ]
+        ]
+    },
+    {
+        "id": "871928655ec7baf0",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/alarm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 900,
+        "y": 560,
+        "wires": [
+            [
+                "56a670d4b67e7e4d"
+            ]
+        ]
+    },
+    {
+        "id": "7a032ab7037dcf5d",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/barrier",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 910,
+        "y": 600,
+        "wires": [
+            [
+                "b4e4f06bc23fbff7"
             ]
         ]
     }
