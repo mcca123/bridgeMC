@@ -4,11 +4,11 @@
 
 // Update these with values suitable for your network.
 
-const char* ssid = "Bell–LaPadula-iot";
-const char* password = "icl@iot!";
-const char* mqttServer = "192.168.1.100";
+const char* ssid = "Malenia_2.4G";
+const char* password = "0986524559";
+const char* mqttServer = "192.168.1.104";
 const char* mqttUser = "mastermcca";
-const char* mqttPassword = "vpjkot8iy[";
+const char* mqttPassword = "vpjkg-hk,kot";
 
 //Senser 1
 const int trigPin1 = D5;
@@ -30,9 +30,6 @@ const int alarmPin = D2;
 //senser ตัวแปร
 long duration;
 int distance;
-
-//isShip
-int isShipIn = 0;
 
 //wifi
 WiFiClient espClient;
@@ -80,15 +77,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   if(receivedtopic == "node/alarm"){ //Alarm
     if(senserToInt == 1){
-       Serial.print("i'm alarm HAHAAHHAHA");
        digitalWrite(alarmPin, LOW);
+       //alarn On
     }else{
-      Serial.print("i'm not alarm");
       digitalWrite(alarmPin, HIGH);
+      //alarn oFF
     }
-  }else if(receivedtopic == "node/isShipOut"){ //isShipOut
-    isShipIn = senserToInt;
-    Serial.print("is ShipIn : " + senserToInt);
   }else if(receivedtopic == "node/barrier"){ //barrier
     barrierIot.write(senserToInt);
   }else if(receivedtopic == "node/bridge"){ //bridge
@@ -108,7 +102,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
         delay(15);
       }
     }
-    
   } 
 }
 
@@ -121,7 +114,6 @@ void reconnect() {
       // Once connected, publish an announcement...
       client.publish("node/connect", "MQTT Server is Connected");
       // ... and resubscribe
-      client.subscribe("node/isShipOut");
       client.subscribe("node/bridge");
       client.subscribe("node/alarm");
       client.subscribe("node/barrier");
@@ -162,18 +154,16 @@ void loop() {
   if (now - lastMsg > 2000) {
     lastMsg = now;
     int sensor1 = checkSensor1();
+    Serial.println();
     snprintf (msg, MSG_BUFFER_SIZE, "%ld", sensor1);
     Serial.print("node/sensor1 Publish message: ");
     Serial.println(msg);
     client.publish("node/sensor1", msg);
 
+    Serial.print("node/sensor2 Publish message: ");
     int sensor2 = checkSensor2();
     snprintf (msg, MSG_BUFFER_SIZE, "%ld", sensor2);
     client.publish("node/sensor2", msg);
-    
-    int isShipPub = isShipIn;
-    snprintf (msg, MSG_BUFFER_SIZE, "%ld", isShipPub);
-    client.publish("node/isShipIn", msg);
   }
 }
 

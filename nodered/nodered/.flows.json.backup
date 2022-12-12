@@ -186,7 +186,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 190,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "580aa6ecf2871cc7",
@@ -217,67 +217,6 @@
         ]
     },
     {
-        "id": "363509711571c709",
-        "type": "function",
-        "z": "0348a0a04014908c",
-        "name": "main function",
-        "func": "var jsonValue = msg.payload;\n\nif (jsonValue[\"node/isShipIn\"] == 0 ){\n    if(jsonValue[\"node/sensor1\"] <= 10){\n        jsonValue[\"node/isShipIn\"] = 1;\n        jsonValue[\"node/bridge\"] = 70;\n        jsonValue[\"node/alarm\"] = 1;\n        jsonValue[\"node/barrier\"] = 0;\n    }\n} else if (jsonValue[\"node/isShipIn\"] == 1 ){\n    if (jsonValue[\"node/sensor2\"] <= 10) {\n        jsonValue[\"node/isShipIn\"] = 0;\n        jsonValue[\"node/bridge\"] = 0;\n        jsonValue[\"node/alarm\"] = 0;\n        jsonValue[\"node/barrier\"] = 90;\n    }\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 480,
-        "wires": [
-            [
-                "994aaacb567b1c99",
-                "a0eec7b7ec370185",
-                "e92735e0ab46f12b",
-                "2576321240562dbc"
-            ]
-        ]
-    },
-    {
-        "id": "523080b1e6597614",
-        "type": "mqtt in",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/isShipIn",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0695e62b325eea6c",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 190,
-        "y": 420,
-        "wires": [
-            [
-                "580aa6ecf2871cc7"
-            ]
-        ]
-    },
-    {
-        "id": "4490fb2dd3a32a27",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/isShipOut",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 1160,
-        "y": 200,
-        "wires": []
-    },
-    {
         "id": "580aa6ecf2871cc7",
         "type": "join",
         "z": "0348a0a04014908c",
@@ -291,17 +230,17 @@
         "joinerType": "str",
         "accumulate": true,
         "timeout": "",
-        "count": "3",
+        "count": "2",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 390,
-        "y": 480,
+        "x": 370,
+        "y": 500,
         "wires": [
             [
-                "363509711571c709"
+                "a02c9a5ec8656bd8"
             ]
         ],
         "inputLabels": [
@@ -312,48 +251,258 @@
         ]
     },
     {
-        "id": "994aaacb567b1c99",
+        "id": "490ee3d57652045c",
+        "type": "ui_text",
+        "z": "0348a0a04014908c",
+        "group": "c9da6c34e5fb01de",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sensor1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 380,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1681fcba9559acf6",
+        "type": "ui_text",
+        "z": "0348a0a04014908c",
+        "group": "c9da6c34e5fb01de",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sensor2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 380,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a02c9a5ec8656bd8",
         "type": "function",
         "z": "0348a0a04014908c",
-        "name": "changet to topic node/isShip",
-        "func": "var temp = msg.payload;\ntemp.message = temp[\"node/isShipIn\"];\nmsg.payload = temp.message;\n\nreturn msg;",
+        "name": "function 3",
+        "func": "var jsonValue = msg.payload;\n\n\nif (jsonValue[\"node/sensor1\"] < 10 && jsonValue[\"node/sensor2\"] > 10) {\n    jsonValue[\"node/isShip\"] = 1;\n} else if (jsonValue[\"node/sensor2\"] < 10 && jsonValue[\"node/sensor1\"] > 10) {\n    jsonValue[\"node/isShip\"] = 0;\n} else {\n    jsonValue[\"node/isShip\"] = 404;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
-        "y": 380,
+        "x": 500,
+        "y": 500,
         "wires": [
             [
-                "4490fb2dd3a32a27",
-                "fcf0890550866f9c",
-                "3b756878d6267f56"
+                "2220783fa947dac0"
             ]
         ]
     },
     {
-        "id": "a0eec7b7ec370185",
+        "id": "2220783fa947dac0",
         "type": "function",
         "z": "0348a0a04014908c",
-        "name": "changet to topic node/bridge",
-        "func": "var temp = msg.payload;\ntemp.message = temp[\"node/bridge\"];\nmsg.payload = temp.message;\n\nreturn msg;",
+        "name": "function 4",
+        "func": "var temp = msg.payload;\ntemp.message = temp[\"node/isShip\"];\nmsg.payload = temp.message;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
-        "y": 440,
+        "x": 640,
+        "y": 500,
         "wires": [
             [
-                "19cb040bf444957e",
-                "cd1c383fa62fbc69"
+                "9ac665aca9a01f01"
             ]
         ]
     },
     {
-        "id": "19cb040bf444957e",
+        "id": "9ac665aca9a01f01",
+        "type": "switch",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 770,
+        "y": 500,
+        "wires": [
+            [
+                "9088a9821cf10d56"
+            ],
+            [
+                "fdbdba5b598d4f37"
+            ]
+        ]
+    },
+    {
+        "id": "9088a9821cf10d56",
+        "type": "mqtt out",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/isShipTrue",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0695e62b325eea6c",
+        "x": 980,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fdbdba5b598d4f37",
+        "type": "mqtt out",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/isShipFalse",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0695e62b325eea6c",
+        "x": 990,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "3cc4c39b64185c49",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/isShipTrue",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 760,
+        "wires": [
+            [
+                "0d27c3f93886db44",
+                "e223fabb531f4825",
+                "dc8f8c1ed20d6475"
+            ]
+        ]
+    },
+    {
+        "id": "0d27c3f93886db44",
+        "type": "change",
+        "z": "0348a0a04014908c",
+        "name": "node/bridge",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "70",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 700,
+        "wires": [
+            [
+                "ab43b80483c84752",
+                "269149a0190f2dcc",
+                "b161a1610ba076ad"
+            ]
+        ]
+    },
+    {
+        "id": "e223fabb531f4825",
+        "type": "change",
+        "z": "0348a0a04014908c",
+        "name": "node/alarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 760,
+        "wires": [
+            [
+                "d6670683e3bc67f2",
+                "2d7acab11cfa6a93",
+                "565998cbac93f14b"
+            ]
+        ]
+    },
+    {
+        "id": "dc8f8c1ed20d6475",
+        "type": "change",
+        "z": "0348a0a04014908c",
+        "name": "node/barrier",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 820,
+        "wires": [
+            [
+                "b0c7e33daa252e8b",
+                "0da4aa92db8e2675",
+                "b4e4f06bc23fbff7"
+            ]
+        ]
+    },
+    {
+        "id": "b161a1610ba076ad",
         "type": "mqtt out",
         "z": "0348a0a04014908c",
         "name": "",
@@ -366,33 +515,12 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 1150,
-        "y": 360,
+        "x": 690,
+        "y": 700,
         "wires": []
     },
     {
-        "id": "e92735e0ab46f12b",
-        "type": "function",
-        "z": "0348a0a04014908c",
-        "name": "changet to topic node/alarm",
-        "func": "var temp = msg.payload;\ntemp.message = temp[\"node/alarm\"];\nmsg.payload = temp.message;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 500,
-        "wires": [
-            [
-                "c77bb40384697794",
-                "6558f16cea3986b9",
-                "efef83cf2455265c"
-            ]
-        ]
-    },
-    {
-        "id": "c77bb40384697794",
+        "id": "565998cbac93f14b",
         "type": "mqtt out",
         "z": "0348a0a04014908c",
         "name": "",
@@ -405,33 +533,12 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 1150,
-        "y": 520,
+        "x": 690,
+        "y": 840,
         "wires": []
     },
     {
-        "id": "2576321240562dbc",
-        "type": "function",
-        "z": "0348a0a04014908c",
-        "name": "changet to topic node/barrier",
-        "func": "var temp = msg.payload;\ntemp.message = temp[\"node/barrier\"];\nmsg.payload = temp.message;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 560,
-        "wires": [
-            [
-                "1c72f55b1c4f5eb0",
-                "d63a8d65dfd5b1d6",
-                "ba3e9f3542953b56"
-            ]
-        ]
-    },
-    {
-        "id": "1c72f55b1c4f5eb0",
+        "id": "0da4aa92db8e2675",
         "type": "mqtt out",
         "z": "0348a0a04014908c",
         "name": "",
@@ -444,29 +551,12 @@
         "correl": "",
         "expiry": "",
         "broker": "0695e62b325eea6c",
-        "x": 1150,
-        "y": 640,
+        "x": 690,
+        "y": 940,
         "wires": []
     },
     {
-        "id": "fcf0890550866f9c",
-        "type": "debug",
-        "z": "0348a0a04014908c",
-        "name": "isShipMsg",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "cd1c383fa62fbc69",
+        "id": "269149a0190f2dcc",
         "type": "debug",
         "z": "0348a0a04014908c",
         "name": "bridgeMsg",
@@ -478,12 +568,12 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 320,
+        "x": 690,
+        "y": 660,
         "wires": []
     },
     {
-        "id": "6558f16cea3986b9",
+        "id": "2d7acab11cfa6a93",
         "type": "debug",
         "z": "0348a0a04014908c",
         "name": "alarmMsg",
@@ -495,12 +585,12 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1140,
-        "y": 480,
+        "x": 680,
+        "y": 800,
         "wires": []
     },
     {
-        "id": "d63a8d65dfd5b1d6",
+        "id": "b0c7e33daa252e8b",
         "type": "debug",
         "z": "0348a0a04014908c",
         "name": "barrierMsg",
@@ -512,182 +602,12 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "71483bb5b4e4104d",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/isShipIn",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 220,
-        "y": 800,
-        "wires": [
-            [
-                "617c4e766569a12d"
-            ]
-        ]
-    },
-    {
-        "id": "b223650655f166d1",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/sensor1",
-        "payload": "5",
-        "payloadType": "num",
-        "x": 220,
-        "y": 860,
-        "wires": [
-            [
-                "c54cd6ebc60dd578"
-            ]
-        ]
-    },
-    {
-        "id": "3d1e224b15edcae7",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/sensor2",
-        "payload": "30",
-        "payloadType": "num",
-        "x": 220,
-        "y": 900,
-        "wires": [
-            [
-                "50184501bad9d00f"
-            ]
-        ]
-    },
-    {
-        "id": "617c4e766569a12d",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/isShipIn",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 520,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "c54cd6ebc60dd578",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/sensor1",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 520,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "50184501bad9d00f",
-        "type": "mqtt out",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "topic": "node/sensor2",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0695e62b325eea6c",
-        "x": 520,
+        "x": 690,
         "y": 900,
         "wires": []
     },
     {
-        "id": "90d05e78bc1c2ddc",
-        "type": "inject",
-        "z": "0348a0a04014908c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "node/isShipIn",
-        "payload": "0",
-        "payloadType": "num",
-        "x": 220,
-        "y": 760,
-        "wires": [
-            [
-                "617c4e766569a12d"
-            ]
-        ]
-    },
-    {
-        "id": "3b756878d6267f56",
+        "id": "ab43b80483c84752",
         "type": "ui_gauge",
         "z": "0348a0a04014908c",
         "name": "",
@@ -709,12 +629,12 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1140,
-        "y": 280,
+        "x": 1160,
+        "y": 960,
         "wires": []
     },
     {
-        "id": "ba3e9f3542953b56",
+        "id": "b4e4f06bc23fbff7",
         "type": "ui_gauge",
         "z": "0348a0a04014908c",
         "name": "",
@@ -736,12 +656,12 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1140,
-        "y": 680,
+        "x": 1160,
+        "y": 1100,
         "wires": []
     },
     {
-        "id": "c659b5b652a510b3",
+        "id": "944f1d2a847d42e8",
         "type": "ui_text",
         "z": "0348a0a04014908c",
         "group": "c9da6c34e5fb01de",
@@ -753,97 +673,261 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1370,
-        "y": 440,
+        "x": 1150,
+        "y": 1020,
         "wires": []
     },
     {
-        "id": "efef83cf2455265c",
+        "id": "d6670683e3bc67f2",
         "type": "function",
         "z": "0348a0a04014908c",
-        "name": "function 1",
+        "name": "function 5",
         "func": "if (msg.payload == 1){\n    msg.payload = true\n} else if (msg.payload == 0) {\n    msg.payload = false\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1140,
-        "y": 440,
+        "x": 680,
+        "y": 760,
         "wires": [
             [
-                "c659b5b652a510b3"
+                "944f1d2a847d42e8"
             ]
         ]
     },
     {
-        "id": "00cd4b8933805f95",
+        "id": "be9d91736d223268",
+        "type": "mqtt in",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/isShipTrue",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0695e62b325eea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 1240,
+        "wires": [
+            [
+                "0191df191ab6328d",
+                "15d88d2c67b92494",
+                "c187b68451bd0a21"
+            ]
+        ]
+    },
+    {
+        "id": "0191df191ab6328d",
+        "type": "change",
+        "z": "0348a0a04014908c",
+        "name": "node/bridge",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1180,
+        "wires": [
+            [
+                "699c61e2ca0acf4d",
+                "eb10a137226393aa",
+                "ab43b80483c84752"
+            ]
+        ]
+    },
+    {
+        "id": "15d88d2c67b92494",
+        "type": "change",
+        "z": "0348a0a04014908c",
+        "name": "node/alarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1240,
+        "wires": [
+            [
+                "56a670d4b67e7e4d",
+                "31dfcb6d5dea78d1",
+                "80671fe2b27d730f"
+            ]
+        ]
+    },
+    {
+        "id": "c187b68451bd0a21",
+        "type": "change",
+        "z": "0348a0a04014908c",
+        "name": "node/barrier",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "90",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1300,
+        "wires": [
+            [
+                "65973d9c98e6fd77",
+                "eb40a92c9aa2fcc7",
+                "b4e4f06bc23fbff7"
+            ]
+        ]
+    },
+    {
+        "id": "eb10a137226393aa",
+        "type": "mqtt out",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/bridge",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0695e62b325eea6c",
+        "x": 690,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "80671fe2b27d730f",
+        "type": "mqtt out",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/alarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0695e62b325eea6c",
+        "x": 690,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "eb40a92c9aa2fcc7",
+        "type": "mqtt out",
+        "z": "0348a0a04014908c",
+        "name": "",
+        "topic": "node/barrier",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0695e62b325eea6c",
+        "x": 690,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "699c61e2ca0acf4d",
+        "type": "debug",
+        "z": "0348a0a04014908c",
+        "name": "bridgeMsg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "31dfcb6d5dea78d1",
+        "type": "debug",
+        "z": "0348a0a04014908c",
+        "name": "alarmMsg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "65973d9c98e6fd77",
+        "type": "debug",
+        "z": "0348a0a04014908c",
+        "name": "barrierMsg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "56a670d4b67e7e4d",
         "type": "function",
         "z": "0348a0a04014908c",
-        "name": "function 2",
+        "name": "function 6",
         "func": "if (msg.payload == 1){\n    msg.payload = true\n} else if (msg.payload == 0) {\n    msg.payload = false\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1140,
-        "y": 120,
+        "x": 680,
+        "y": 1240,
         "wires": [
             [
-                "e2be6452a70dcff1"
+                "944f1d2a847d42e8"
             ]
         ]
-    },
-    {
-        "id": "e2be6452a70dcff1",
-        "type": "ui_text",
-        "z": "0348a0a04014908c",
-        "group": "c9da6c34e5fb01de",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "isShip",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 1370,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "490ee3d57652045c",
-        "type": "ui_text",
-        "z": "0348a0a04014908c",
-        "group": "c9da6c34e5fb01de",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "sensor1",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 420,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "1681fcba9559acf6",
-        "type": "ui_text",
-        "z": "0348a0a04014908c",
-        "group": "c9da6c34e5fb01de",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "sensor2",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 400,
-        "y": 540,
-        "wires": []
     }
 ]
