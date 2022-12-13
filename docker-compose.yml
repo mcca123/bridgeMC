@@ -38,6 +38,8 @@ services:
       dockerfile: dockerfile
     restart: unless-stopped
     networks:
+      b-networks:
+        ipv4_address: 10.20.3.5
       c-networks:
         ipv4_address: 10.30.3.5
 

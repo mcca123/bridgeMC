@@ -2,6 +2,8 @@
 
 # service  --status-all
 # /bin/bash -c "sudo openvpn /clientPhp.ovpn"
+/bin/bash -c "route add -net 10.20.3.0 netmask 255.255.255.0 gw 10.20.3.1"
+/bin/bash -c "route add -net 10.30.3.0 netmask 255.255.255.0 gw 10.30.3.1"
 /bin/bash -c "route add -net 192.168.255.0 netmask 255.255.255.0 gw 10.30.3.2"
 /bin/bash -c "route add -net 192.168.254.0 netmask 255.255.255.0 gw 10.30.3.2"
 /bin/bash -c "/usr/sbin/sshd"
