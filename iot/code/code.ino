@@ -4,9 +4,9 @@
 
 // Update these with values suitable for your network.
 
-const char* ssid = "Malenia_2.4G";
-const char* password = "0986524559";
-const char* mqttServer = "192.168.1.104";
+const char* ssid = "Bell–LaPadula-iot";
+const char* password = "icl@iot!";
+const char* mqttServer = "192.168.137.36";
 const char* mqttUser = "mastermcca";
 const char* mqttPassword = "vpjkg-hk,kot";
 
@@ -30,6 +30,7 @@ const int alarmPin = D2;
 //senser ตัวแปร
 long duration;
 int distance;
+long cm;
 
 //wifi
 WiFiClient espClient;
@@ -86,22 +87,11 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }else if(receivedtopic == "node/barrier"){ //barrier
     barrierIot.write(senserToInt);
   }else if(receivedtopic == "node/bridge"){ //bridge
-    delay(2000);
     senserToInt = senserToInt*2;
-    if(senserToInt > 140){
-      senserToInt = 140;
+    if(senserToInt > 100){
+      senserToInt = 100;
     }
-    if(senserToInt > 0){
-      for(int x=0;x<senserToInt;x++){
-        bridgeIot.write(x);
-        delay(15);
-      }
-    }else if(senserToInt < 140){
-      for(int x=140;x<senserToInt;x--){
-        bridgeIot.write(x);
-        delay(15);
-      }
-    }
+    bridgeIot.write(senserToInt);
   } 
 }
 
@@ -153,56 +143,42 @@ void loop() {
   unsigned long now = millis();
   if (now - lastMsg > 2000) {
     lastMsg = now;
-    int sensor1 = checkSensor1();
+    //int sensor1 = checkSensor1();
     Serial.println();
-    snprintf (msg, MSG_BUFFER_SIZE, "%ld", sensor1);
-    Serial.print("node/sensor1 Publish message: ");
-    Serial.println(msg);
-    client.publish("node/sensor1", msg);
 
+    int u1 = getLength(echoPin1, trigPin1); // วัดระยะทาง Ultrasonic ตัวที่ 1
+    Serial.print("node/sensor1 Publish message: ");
+    Serial.println(u1);
+    snprintf (msg, MSG_BUFFER_SIZE, "%ld", u1);
+    client.publish("node/sensor1", msg);
+    memset(msg, 0, sizeof(msg));
+    delay(1000);
+    
+    int u2 = getLength(echoPin2, trigPin2); // วัดระยะทาง Ultrasonic ตัวที่ 2
     Serial.print("node/sensor2 Publish message: ");
-    int sensor2 = checkSensor2();
-    snprintf (msg, MSG_BUFFER_SIZE, "%ld", sensor2);
+    Serial.println(u2);
+    snprintf (msg, MSG_BUFFER_SIZE, "%ld", u2);
     client.publish("node/sensor2", msg);
+    memset(msg, 0, sizeof(msg));
+    delay(1000);
   }
 }
 
-//เช็คระยะห่าง sensor1
-int checkSensor1(){
+//เช็คระยะห่าง sensor
+int getLength(int echo, int trig){
   // Clears the trigPin
-  digitalWrite(trigPin1, LOW);
+  digitalWrite(trig, LOW);
   delayMicroseconds(2);
 
   // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin1, HIGH);
+  digitalWrite(trig, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trigPin1, LOW);
+  digitalWrite(trig, LOW);
 
   // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin1, HIGH);
+  duration = pulseIn(echo, HIGH);
 
   // Calculating the distance
   distance= duration*0.034/2;
-  Serial.println(distance);
-  return(distance);
-}
-
-//เช็คระยะห่าง sensor2
-int checkSensor2(){
-  // Clears the trigPin
-  digitalWrite(trigPin2, LOW);
-  delayMicroseconds(2);
-
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin2, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin2, LOW);
-
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin2, HIGH);
-
-  // Calculating the distance
-  distance= duration*0.034/2;
-  Serial.println(distance);
   return(distance);
 }

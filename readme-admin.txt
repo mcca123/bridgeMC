@@ -4,4 +4,6 @@ sudo docker run --name=mastertest --network=cNetwork --ip=10.30.3.2 --restart un
 
 mosquitto on kali
 run from bridgeMC/mosquitto
+go to mosquitto.conf and delete config from path
 docker run -it --name mosquitto -p 1883:1883 -v $(pwd):/mosquitto/ eclipse-mosquitto:1.4.10
+

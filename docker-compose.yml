@@ -11,7 +11,6 @@ services:
     networks:
       a-networks:
         ipv4_address: 10.10.3.3
-    
       b-networks:
         ipv4_address: 10.20.3.3
 
@@ -57,21 +56,6 @@ services:
     networks:
       a-networks:
         ipv4_address: 10.10.3.2
-
-  # masterpi:
-  #   cap_add:
-  #     - NET_ADMIN
-  #   build: 
-  #     context: ./vpn
-  #     dockerfile: dockerfile-pi
-  #   volumes:
-  #     - ./vpn/openvpn-pi:/etc/openvpn
-  #   restart: unless-stopped
-  #   ports:
-  #     - '1200:1194/udp'
-  #   networks:
-  #     c-networks:
-  #       ipv4_address: 10.30.3.2
 
 networks:
   a-networks:
