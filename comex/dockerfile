@@ -6,13 +6,12 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN ln -snf /usr/share/zoneinfo/$DATE_TIMEZONE /etc/localtime && echo $DATE_TIMEZONE > /etc/timezone
 
-RUN apt-get install -y zip unzip
 RUN apt-get install -y \
 	php7.4 \
 	php7.4-mysql
 RUN apt-get install apache2 libapache2-mod-php7.4 -y
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
-RUN apt-get install git composer nano tree vim curl net-tools wget -y
+RUN apt-get install net-tools -y
 RUN apt-get install netcat iputils-ping -y
 RUN apt-get install -y python3-pip python3-dev \
   && cd /usr/local/bin \
@@ -38,8 +37,6 @@ RUN chmod 644 /etc/vsftpd.conf
 RUN useradd -ms /bin/bash master-mc && echo "master-mc:eD^LW5(EyZtW6ubu" | chpasswd
 COPY ./ftpMeme/helpMe.png /home/master-mc/helpMe.png
 
-RUN apt-get install nmap -y
-
 #config command
 COPY ./scripts/start /start
 RUN chmod +x /start
@@ -50,6 +47,7 @@ RUN service ssh start
 EXPOSE 20-21/tcp
 EXPOSE 22
 EXPOSE 80
+EXPOSE 3306
 EXPOSE 40000-40009:40000-40009/tcp
 
 CMD ["/start"]
