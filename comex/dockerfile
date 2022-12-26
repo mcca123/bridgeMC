@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN ln -snf /usr/share/zoneinfo/$DATE_TIMEZONE /etc/localtime && echo $DATE_TIMEZONE > /etc/timezone
 
+RUN apt-get update
 RUN apt-get install -y \
 	php7.4 \
 	php7.4-mysql
